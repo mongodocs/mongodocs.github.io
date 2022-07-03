@@ -43,6 +43,7 @@ jobs:
       with:
         name: built-docs
         path: build
+
     - name: Deploy to GH Pages 🚀
       uses: JamesIves/github-pages-deploy-action@v4
       with:
