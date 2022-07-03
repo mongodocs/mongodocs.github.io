@@ -17,6 +17,8 @@ jobs:
     steps:
     - name: Install dependencies
       uses: actions/setup-python@v4
+      with:
+          python-version: '2.7'
     - run: apt-get install python-sphinx && python2 -m pip install giza
     
     - name: Checkout docs
