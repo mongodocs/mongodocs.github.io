@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - name: Install dependencies
-    - run: pip3 install giza
+      run: pip3 install giza
     
     - name: Checkout docs
       uses: actions/checkout@v3
