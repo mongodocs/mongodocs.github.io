@@ -28,27 +28,9 @@ jobs:
       
     - name: Build docs
       run: make html
-      
-    - name: Upload artefacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: built-docs
-        path: build/${{ env.DOCS_BRANCH }}/html
-      
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-    - uses: actions/download-artifact@v3
-      with:
-        name: built-docs
-        path: build
-    
-    - name: Checkout repo
-      uses: actions/checkout@v3
 
     - name: Deploy to GH Pages 🚀
       uses: JamesIves/github-pages-deploy-action@v4
       with:
-        folder: build
+        folder: build/${{ env.DOCS_BRANCH }}/html
         branch: main
