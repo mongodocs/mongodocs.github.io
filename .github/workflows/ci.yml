@@ -30,3 +30,8 @@ jobs:
       
     - name: Build docs
       run: make html
+
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: build/${{ env.DOCS_BRANCH }}/html/
