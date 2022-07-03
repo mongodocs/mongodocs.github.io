@@ -16,10 +16,7 @@ jobs:
 
     steps:
     - name: Install dependencies
-      uses: actions/setup-python@v4
-      with:
-        python-version: '2.7'
-    - run: python2 -m pip install sphinx giza Pygments==2.7.4
+    - run: pip3 install giza
     
     - name: Checkout docs
       uses: actions/checkout@v3
