@@ -19,8 +19,8 @@ jobs:
       uses: actions/setup-python@v4
       with:
           python-version: '2.7'
-    - run: python2 -m pip install urllib3==1.23
-        && python2 -m pip install -r https://raw.githubusercontent.com/mongodb/docs-tools/master/giza/requirements.txt
+    - run: python2 -m pip install -r https://raw.githubusercontent.com/mongodb/docs-tools/master/giza/requirements.txt
+        && python2 -m pip install -I urllib3==1.23
     
     - name: Checkout docs
       uses: actions/checkout@v3
