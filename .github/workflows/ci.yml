@@ -11,9 +11,7 @@ env:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - name: Install dependencies
       uses: actions/setup-python@v4
@@ -30,8 +28,21 @@ jobs:
       
     - name: Build docs
       run: make html
-
+      
+    - name: Upload artefacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: built-docs
+        path: build/${{ env.DOCS_BRANCH }}/html
+      
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/download-artifact@v3
+      with:
+        name: built-docs
+        path: build
     - name: Deploy to GH Pages 🚀
       uses: JamesIves/github-pages-deploy-action@v4
       with:
-        folder: build/${{ env.DOCS_BRANCH }}/html/
+        folder: build
